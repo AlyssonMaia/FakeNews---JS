@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Buscapé - Compare Preços e Economize</title>
+    <link rel="shortcut icon" href="img/buscape.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="js/mascaras.js"></script>
+    <script type="text/javascript" src="js/cep.js"></script>
+    <script type="text/javascript" src="js/formulario.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+</head>
+<body>
+<div id="textoprincipal">
+    <h2 id="h2inicial">
+        Informações Pessoais
+        <br>
+        <span id="hramarelo">_____</span>
+    </h2>
+</div>
+<div class="header"></div>
+<div class="container">
+    <div id="formulario">
+        <form id="cadastro" action="#">
+            <table width="625" border="0">
+                <tr>
+                    <td width="69">Nome:</td>
+                    <td width="546"><input name="nome" type="text" id="nome" size="70" maxlength="60" class=""
+                                           placeholder=" Seu Nome"/>
+                        <span class="style1">*</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>CPF:</label>
+                    </td>
+                    <td align="left">
+                        <input type="text" name="cpf" id="cpf" size="15" maxlength="15" class="cpf"
+                               placeholder=" *** . *** . ***-** ">
+                        <span class="style1">*</span></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>RG:</label>
+                    </td>
+                    <td align="left">
+                        <input type="text" name="rg" id="rg" size="15" maxlength="15" class="rg">
+                        <span class="style1">*</span></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Data Nascimento:</label>
+                    </td>
+                    <td align="left">
+                        <input type="date" name="date" size="10" id="data" class="">
+                        <span class="style1">*</span></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sexo:</td>
+                    <td><select name="sexo" id="sexo" class="sexo">
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                </tr>
+                <tr>
+                    <td>Telefone:</td>
+                    <td><input name="telefone" type="text" id="telefone" size="30" maxlength="60" class="telefone"
+                               placeholder=" 9 - ********"/>
+                        <span class="style1">*</span></td>
+                </tr>
+                <tr>
+                    <td>CEP:</td>
+                    <td><input name="cep" type="numero" id="cep" maxlength="20" class="cepx"
+                               onblur="pesquisacep(this.value);" placeholder=" ** . *** - ***"/>
+                        <span class="style1">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cidade:</td>
+                    <td><input name="cidade" type="text" id="cidade" maxlength="20" class="cidade"
+                               placeholder=" Sua Cidade"/>
+                        <span class="style1">*</span></td>
+                </tr>
+                <tr>
+                    <td>UF:</td>
+                    <td><input name="uf" type="text" id="uf" maxlength="20" class="uf" placeholder=" Seu Estado"/>
+                        <span class="style1">*</span></td>
+                </tr>
+                <tr>
+                    <td>Bairro:</td>
+                    <td><input name="bairro" type="text" id="bairro" maxlength="20" class="bairro"
+                               placeholder=" Seu Bairro"/>
+                        <span class="style1">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Rua:</td>
+                    <td><input name="rua" type="text" id="rua" maxlength="20" class="rua" placeholder=" Sua Rua"/>
+                        <span class="style1">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Numero:</td>
+                    <td><input name="numero" type="numero" id="numero_casa" maxlength="20" class="numero"
+                               placeholder=" Ex: 204"/>
+                        <span class="style1">*</span>
+                    </td>
+                </tr>
+            </table>
+            <div id="divlogin">
+                <h2 id="h2login">
+                    Informações de Login
+                    <br>
+                    <span id="hramarelo">_____</span>
+                </h2>
+            </div>
+            <table width="370" border="0">
+                <tr>
+                    <td>Login:</td>
+                    <td><input name="login" type="text" id="email" maxlength="20" class="email"
+                               placeholder=" Email@dominio.com"/>
+                        <span class="style1">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Senha:</td>
+                    <td><input name="senha" type="password" id="senha" maxlength="12" class="senha"
+                               placeholder=" ****** "/>
+                        <span class="style1">*</span>
+                    </td>
+                </tr>
+                <td>Foto:</td>
+                <td><input name="foto_perfil" type="file" id="foto_perfil" class="Upload" maxlength="12"/>
+                    <span class="style1">*</span>
+                    <div>
+                        <img id="thumbnail" class="img-formulario" src="#"></img>
+                    </div>
+                    <button onclick="verificarCadastro()">ENVIAR</button>
+                    <button type="reset">LIMPAR DADOS</button>
+                    <br>
+                    <span class="style1">* Campos com * são obrigatórios!</span></p>
+                </td>
+                </tr>
+
+            </table>
+        </form>
+        <!--Mapa-->
+        <h3>Google Map</h3>
+        <div id="map"></div>  <!--Designa uma área da página para o mapa Google.-->
+
+        <!-- O script carrega a API pelo URL especificado.
+        O parâmetro callback executa a função initMap depois que a API é totalmente carregada.
+        O atributo async permite que o navegador continue renderizando o resto da sua página enquanto a API carrega.
+        O parâmetro key contém a sua chave de API.  -->
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNjE5_3thxeQFNqiwI02qZyw3h1g3bFds&callback=initMap">
+        </script>
+    </div>
+    <hr>
+</div>
+<br>
+<div class="footer"></div>
+</body>
+</html>
